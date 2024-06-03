@@ -3,6 +3,8 @@
 #include "klasy.h"
 using namespace std;
 
+
+
 int main()
 {
     //tworzenie figur
@@ -73,4 +75,36 @@ int main()
         Squares[i].sArea();
         cout<<endl;
     }
+
+    //Szukanie najwiekszego pola
+
+    double max = areaOfS[0];
+    char figureType='S';
+    for (int i = 0; i < 100; ++i) {
+        if (areaOfS[i] > max) {
+            max = areaOfS[i];
+            figureType='S';
+        }
+        if (areaOfR[i] > max) {
+            max = areaOfR[i];
+            figureType='R';
+        }
+        if (areaOfC[i] > max) {
+            max = areaOfC[i];
+            figureType='C';
+        }
+    }
+    // Wyświetlanie informacji o figurze z największym polem
+    switch (figureType) {
+        case 'S':
+            std::cout << "Najwieksze pole nalezy do kwadratu i jest rowne: " << max << std::endl;
+            break;
+        case 'R':
+            std::cout << "Najwieksze pole nalezy do prostokata i jest rowne: " << max << std::endl;
+            break;
+        case 'C':
+            std::cout << "Najwieksze pole nalezy do kola i jest rowne: " << max << std::endl;
+            break;
+    }
+    return 0;
 }
