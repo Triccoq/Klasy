@@ -24,6 +24,9 @@ public:
     const Point& distant(const Point& p) const;
 };
 */
+extern double areaOfS[100];
+extern double areaOfR[100];
+extern double areaOfC[100];
 
 class Square
 {
@@ -38,12 +41,13 @@ public:
     ~Square();
     void setName(const std::string& name);
     void setSa(double a);
-    double getSa();
+    double getSa() const;
     void show() const;
     double calculateSCircumference() const{
         return 4*s_a;
     }
     double calculateSArea() const{
+        areaOfS[Square::numberOfSquares()]=s_a*s_a;
         return s_a*s_a;
     }
     void sCircumference() const;
@@ -65,13 +69,14 @@ public:
     ~Rectangle();
     void setName(const std::string& name);
     void setRab(double a, double b);
-    double getRa();
-    double getRb();
+    double getRa() const;
+    double getRb() const;
     void show() const;
     double calculateRCircumference() const{
         return 2*(r_a+r_b);
     }
     double calculateRArea() const{
+        areaOfR[Rectangle::numberOfRectangles()]=r_a*r_b;
         return r_a*r_b;
     }
     void rCircumference() const;
@@ -91,14 +96,16 @@ public:
     ~Circle();
     void setName(const std::string& name);
     void setCr(double r);
-    double getCr();
+    double getCr() const;
     void show() const;
     double calculateCCircumference() const{
         return 2*M_PI*c_r;;
     }
     double calculateCArea() const{
+        areaOfC[Circle::numberOfCircles()]=M_PI*(c_r*c_r);
         return M_PI*(c_r*c_r);
     }
     void cCircumference() const;
     void cArea() const;
 };
+
